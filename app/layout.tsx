@@ -1,7 +1,10 @@
-import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
+import config from '@/amplifyconfiguration.json';
+import { Amplify } from 'aws-amplify';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+
+Amplify.configure(config as any, { ssr: true });
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ConfigureAmplifyClientSide />
       <body className={inter.className}>{children}</body>
     </html>
   )
