@@ -4,6 +4,7 @@ import { Amplify } from "aws-amplify";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Auth from "@/components/Auth";
 
 Amplify.configure(config as any, { ssr: true });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ConfigureAmplifyClientSide />
-        {children}
+        <Auth>{children}</Auth>
       </body>
     </html>
   );

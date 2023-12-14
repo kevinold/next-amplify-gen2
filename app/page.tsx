@@ -1,8 +1,3 @@
-"use client";
-
-import { withAuthenticator } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
-
 import TodoList from "@/components/TodoList";
 
 function App() {
@@ -14,4 +9,4 @@ function App() {
   );
 }
 
-export default withAuthenticator(App);
+export default App;
