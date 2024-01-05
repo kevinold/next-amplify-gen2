@@ -1,5 +1,5 @@
 import { listTodos } from "@/queries";
-import { cookiesClient } from "@/utils/amplifyServerUtils";
+import { cookiesClient } from "@/utils/amplify-utils";
 import { revalidatePath } from "next/cache";
 
 export default async function TodoList() {

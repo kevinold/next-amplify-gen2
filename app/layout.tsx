@@ -1,10 +1,10 @@
 import config from "@/amplifyconfiguration.json";
+import Auth from "@/components/Auth";
 import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
 import { Amplify } from "aws-amplify";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Auth from "@/components/Auth";
 
 Amplify.configure(config as any, { ssr: true });
 
