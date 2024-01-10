@@ -1,22 +1,19 @@
-import { listTodos } from "@/queries";
 import { cookiesClient } from "@/utils/amplify-utils";
 import { revalidatePath } from "next/cache";
 
 export default async function TodoList() {
-  const { data, errors } = await cookiesClient.graphql({
-    query: listTodos,
-  });
+  const { data, errors } = await cookiesClient.models.Todo.list();
 
-  const todos = data.listTodos.items;
+  const todos = data;
 
   async function addTodo(data: FormData) {
     "use server";
     const title = data.get("title") as string;
-    // const { errors, data: newTodo } = await client.models.Todo.create({
-    //   content: title,
-    //   done: false,
-    //   priority: "medium",
-    // });
+    await cookiesClient.models.Todo.create({
+      content: title,
+      done: false,
+      priority: "medium",
+    });
     revalidatePath("/");
   }
 
