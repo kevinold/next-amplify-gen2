@@ -1,11 +1,8 @@
-import config from "@/amplifyconfiguration.json";
 import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
-import { Amplify } from "aws-amplify";
+import "@aws-amplify/ui-react/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-Amplify.configure(config as any, { ssr: true });
 
 const inter = Inter({ subsets: ["latin"] });
 
