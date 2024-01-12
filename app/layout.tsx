@@ -1,5 +1,4 @@
 import config from "@/amplifyconfiguration.json";
-import Auth from "@/components/Auth";
 import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
 import { Amplify } from "aws-amplify";
 import type { Metadata } from "next";
@@ -24,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ConfigureAmplifyClientSide />
-        <Auth>{children}</Auth>
+        {children}
       </body>
     </html>
   );
