@@ -28,16 +28,7 @@ export function CustomAuthenticator() {
     }
   }, [user]);
 
-  return (
-    <Authenticator components={components}>
-      {({ signOut, user }) => (
-        <main>
-          <h1>Hello {user.username}</h1>
-          <button onClick={signOut}>Sign out</button>
-        </main>
-      )}
-    </Authenticator>
-  );
+  return <Authenticator components={components} />;
 }
 
 export default function Login() {
