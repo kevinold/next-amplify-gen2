@@ -19,7 +19,7 @@ const components = {
   },
 };
 
-export function CustomAuthenticator() {
+function CustomAuthenticator() {
   const { user } = useAuthenticator((context) => [context.user]);
 
   useEffect(() => {
