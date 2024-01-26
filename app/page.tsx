@@ -1,9 +1,10 @@
-import { cookiesClient } from "@/utils/amplify-utils";
-import { useAuthenticator } from "@aws-amplify/ui-react";
+import { AuthGetCurrentUserServer, cookiesClient } from "@/utils/amplify-utils";
 import { revalidatePath } from "next/cache";
 
+import Logout from "@/components/Logout";
+
 async function App() {
-  const { user, signOut } = useAuthenticator((context) => [context.user]);
+  const user = await AuthGetCurrentUserServer();
   const { data: todos } = await cookiesClient.models.Todo.list();
 
   async function addTodo(data: FormData) {
@@ -20,7 +21,7 @@ async function App() {
   return (
     <>
       <h1>Hello, Amplify 👋</h1>
-      {user && <button onClick={signOut}>Sign Out</button>}
+      {user && <Logout />}
       <form action={addTodo}>
         <input type="text" name="title" />
         <button type="submit">Add Todo</button>
