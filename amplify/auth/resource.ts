@@ -6,6 +6,14 @@ import { defineAuth } from "@aws-amplify/backend";
  * @see https://docs.amplify.aws/gen2/build-a-backend/auth
  */
 export const auth = defineAuth({
+  // triggers: {
+  //   postConfirmation: {
+  //     getInstance: (props) => Func.fromDir({
+  //       name: "authorizer",
+  //       codePath: path.join(".", "lambda-authorizer"),
+  //     })
+  //   },
+  // },
   loginWith: {
     email: {
       verificationEmailSubject: "Welcome! Verify your email!",
